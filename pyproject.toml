@@ -1,0 +1,61 @@
+[project]
+name = "document_manager_technical_test"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "requests==2.32.3",
+    "jsonschema==4.20.0",
+    "uvicorn",
+    "pyjwt",
+    "json_repair",
+    "httpx==0.23.0",
+    "sse-starlette",
+    "fastapi-restful[all]==0.5.0",
+    "fastapi==0.110.3",
+    "anyio==3.7.1",
+    "httpcore==0.15.0",
+    "protobuf==4.24.4",
+    "python-snappy==0.7.0",
+    "python-dateutil",
+    "cryptography==42.0.5"
+]
+
+[dependency-groups]
+dev = [
+    "black>=23.10.1",
+    "pylama>=8.4.1",
+    "pytest>=7.4.2",
+    "pytest-cov>=5.0.0",
+    "pytest-timeout>=2.3.1",
+    "pytest-xdist>=3.6.1",
+    "requests-mock>=1.12.1",
+    "setuptools>=75.7.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "document_manager/__version__.py"
+
+[tool.hatch.build]
+include = [
+    "document_manager/**/*",
+    "README.md"
+]
+
+[tool.uv]
+cache-keys = [{ file = "document_manager/__version__.py" }]
+
+[tool.uv.sources]
+document_manager = { workspace = true }
+
+[tool.pytest.ini_options]
+markers = [
+    "unit",
+    "integration",
+    "e2e"
+]

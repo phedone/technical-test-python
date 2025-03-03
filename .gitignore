@@ -1,0 +1,10 @@
+*.egg*
+*pycache*
+build/
+.idea/
+htmlcov/
+.coverage
+pypi/
+node_modules/
+.env
+.env.keys

@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/local/Dockerfile
+    container_name: document_manager-microservice-local
+    ports:
+      - "${SERVICE_PORT:-8080}:${SERVICE_PORT}"
+    volumes:
+      - ./document_manager:/app/document_manager
+    environment:
+      - TZ=Europe/Luxembourg
+      - DEBIAN_FRONTEND=noninteractive
+      - SHELL=/bin/bash
+      - PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python
